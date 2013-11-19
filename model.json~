@@ -1,0 +1,13 @@
+{
+    "dimensions": [
+        {"name":"wind"},
+         {"name":"datetime"}
+    ],
+    "cubes": [
+        {
+            "name": "datatest",
+            "dimensions": ["wind", "datetime"],
+            "measures": [{"name":"wind", "label":"Wind"}] 
+        }
+    ]
+}

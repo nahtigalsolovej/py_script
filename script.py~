@@ -1,0 +1,15 @@
+from pydap.client import open_url
+dataset = open_url('http://opendap.solab.rshu.ru:8080/opendap/allData/SSMI/f13/bmaps_v07/y1995/m05/f13_19950503v7.gz')
+wspd = dataset.wspd
+time = dataset.time
+for i in range(wspd.shape[0]):
+    for j in range(wspd.shape[1]):
+        value = wspd[i, j, 0][0]
+        if value < 250:
+            value = value * wspd.scale_factor + wspd.add_offset 
+        t = time[i, j, 0][0]
+        if t < 250:
+            t = t * time.scale_factor + time.add_offset
+        print value[i,j], t[i,j]
+        break
+    break
